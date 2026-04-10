@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mythili Mam 🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg,#fff0f6,#f5e6ff,#fff8e7);
+  overflow-x:hidden;
+}
+
+/* 🌸 FLOAT BG */
+.bg{position:fixed;width:100%;height:100%;pointer-events:none;}
+.float{position:absolute;animation:fall linear infinite;opacity:0.25;}
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+/* 🎬 OPENING */
+.opening{
+  text-align:center;
+  padding:60px 20px 30px;
+  animation:blurIn 1.2s ease forwards;
+}
+@keyframes blurIn{
+from{filter:blur(10px);opacity:0;}
+to{filter:blur(0);opacity:1;}
+}
+
+.balloons{
+  font-size:2.5rem;
+  animation:float 2.5s infinite;
+}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.sub,.title,.name,.emoji{
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1s forwards;
+}
+.sub{animation-delay:0.3s;}
+.title{animation-delay:0.6s;}
+.name{animation-delay:0.9s;}
+.emoji{animation-delay:1.2s;}
+
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0);}
+}
+
+.title{font-family:'Dancing Script';font-size:3rem;}
+.name{color:#e8678a;font-family:'Playfair Display';}
+
+/* ✍️ typing */
+.quote{
+max-width:350px;
+margin:15px auto;
+font-style:italic;
+overflow:hidden;
+white-space:nowrap;
+border-right:2px solid #e8678a;
+width:0;
+animation:typing 3s steps(60,end) forwards, blink 0.6s infinite;
+}
+@keyframes typing{to{width:100%;}}
+@keyframes blink{50%{border-color:transparent;}}
+
+/* 📸 COLLAGE */
+.collage{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+padding:20px;
+}
+.photo{
+width:140px;
+height:180px;
+border-radius:15px;
+overflow:hidden;
+transform:rotate(var(--rot));
+transition:0.4s;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+.photo:hover{
+transform:scale(1.1) rotate(0deg);
+z-index:10;
+}
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* 💖 PREMIUM TRAITS SECTION */
+.traits-section{
+background: linear-gradient(135deg,#fff,#f9f0ff);
+margin:30px 15px;
+padding:30px 20px;
+border-radius:25px;
+box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
+
+.section-title{
+text-align:center;
+font-family:'Dancing Script';
+font-size:2rem;
+color:#6b2d5e;
+margin-bottom:25px;
+}
+
+.trait-card{
+display:flex;
+gap:15px;
+padding:18px 0;
+border-bottom:1px solid #f0e0f0;
+opacity:0;
+transform:translateY(30px);
+transition:0.8s;
+}
+
+.trait-card:last-child{border-bottom:none;}
+.trait-card.show{opacity:1;transform:translateY(0);}
+
+.icon{
+font-size:1.8rem;
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:linear-gradient(135deg,#ffe0f0,#f3e5ff);
+box-shadow:0 5px 15px rgba(232,103,138,0.2);
+}
+
+.trait-card h3{
+margin:0;
+color:#7a4060;
+font-family:'Playfair Display';
+}
+
+.trait-card p{
+margin:5px 0 0;
+font-size:0.9rem;
+color:#7a5070;
+line-height:1.5;
+}
+
+/* ✨ TAGLINE */
+.tagline{
+text-align:center;
+font-family:'Dancing Script';
+font-size:1.6rem;
+padding:40px;
+}
+
+/* 🎯 BUTTON */
+.treat{text-align:center;padding:50px;position:relative;}
+.btn-yes{
+background:#e8678a;
+color:white;
+padding:15px 40px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+.btn-no{
+position:absolute;
+padding:10px 20px;
+background:#eee;
+border-radius:20px;
+}
+
+/* ✨ SPARK */
+.spark{
+position:fixed;
+pointer-events:none;
+animation:spark 1s forwards;
+}
+@keyframes spark{
+to{opacity:0;transform:translateY(-40px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+
+<audio id="audio" src="audio/birthday.mp3" loop></audio>
+
+<!-- 🎬 OPENING -->
+<div class="opening">
+<div class="balloons">🎈🎀🎈</div>
+<div class="sub">✦ With all the love ✦</div>
+<h1 class="title">Happy Birthday</h1>
+<h2 class="name">Mythili Mam 🌸</h2>
+<div class="emoji">🎉 🌺 🎊 🌷 🎁</div>
+<p class="quote">
+You were my first and last love in college — not just as a teacher, but as a soul that truly inspired me.
+</p>
+</div>
+
+<!-- COLLAGE -->
+<div class="collage" id="collage"></div>
+
+<!-- 💖 TRAITS -->
+<div class="traits-section">
+<h2 class="section-title">What Makes You Extraordinary ✨</h2>
+
+<div class="trait-card"><div class="icon">🙏</div><div><h3>Respectful Soul</h3><p>You treat everyone equally with kindness and respect.</p></div></div>
+<div class="trait-card"><div class="icon">🌉</div><div><h3>Warm & Friendly</h3><p>You build bridges, not walls, between people.</p></div></div>
+<div class="trait-card"><div class="icon">🕊️</div><div><h3>Gentle & Polite</h3><p>Your words bring calm and peace wherever you go.</p></div></div>
+<div class="trait-card"><div class="icon">⭐</div><div><h3>Truly Special</h3><p>A once-in-a-lifetime person who stays in hearts forever.</p></div></div>
+<div class="trait-card"><div class="icon">💖</div><div><h3>A Beautiful Presence</h3><p>A memory, a mentor, and a friend beyond everything.</p></div></div>
+
+</div>
+
+<div class="tagline">
+"You are not just a teacher… you are a feeling we will never forget."
+</div>
+
+<div class="treat">
+<h2>Treat? 😏</h2>
+<button class="btn-yes" onclick="confetti()">Yes 🎉</button>
+<button class="btn-no" id="noBtn">No 🙈</button>
+</div>
+
+<script>
+
+/* AUDIO */
+document.body.addEventListener("click",()=>{
+document.getElementById("audio").play();
+},{once:true});
+
+/* BG FLOAT */
+const symbols=["🌸","💖","✨"];
+for(let i=0;i<30;i++){
+let el=document.createElement("div");
+el.className="float";
+el.innerHTML=symbols[Math.random()*3|0];
+el.style.left=Math.random()*100+"%";
+el.style.animationDuration=(5+Math.random()*5)+"s";
+document.getElementById("bg").appendChild(el);
+}
+
+/* COLLAGE */
+const imgs=["images/img1.png","images/img2.png","images/img3.png","images/img4.png","images/img5.png"];
+const collage=document.getElementById("collage");
+
+imgs.forEach(src=>{
+let div=document.createElement("div");
+div.className="photo";
+div.style.setProperty("--rot",(Math.random()*20-10)+"deg");
+div.innerHTML=`<img src="${src}">`;
+collage.appendChild(div);
+});
+
+/* SCROLL */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".trait-card").forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight - 50){
+card.classList.add("show");
+}
+});
+});
+
+/* NO BUTTON */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+noBtn.style.left=Math.random()*200+"px";
+noBtn.style.top=Math.random()*200+"px";
+});
+
+/* CONFETTI */
+function confetti(){
+for(let i=0;i<60;i++){
+let el=document.createElement("div");
+el.className="spark";
+el.innerHTML="🎉";
+el.style.left=Math.random()*100+"%";
+el.style.top=Math.random()*100+"%";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),1000);
+}
+}
+
+/* SPARK CURSOR */
+document.addEventListener("mousemove",e=>{
+let s=document.createElement("div");
+s.className="spark";
+s.innerHTML="✨";
+s.style.left=e.clientX+"px";
+s.style.top=e.clientY+"px";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),800);
+});
+
+</script>
+
+</body>
+</html>
